@@ -45,12 +45,17 @@ Route::get('/e', function () {
 Route::get('/register', function () {
     return redirect()->back();
 });
+Route::group(['prefix' => 'test'], function () {
+    //dd("dfdf");
+    Route::get('/', [AdminController::class, 'test']);
+});
 // Route::group(['prefix' => 'admin', 'middleware' => [
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
 //     'verified'
 // ]]
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->prefix('admin')->group(function () {
+
 
     Route::resources([
         'specialty' => SpecialtyController::class,
