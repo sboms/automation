@@ -29,7 +29,9 @@
                     <div class="card-content">
                         <div class="card-body">
                             <div class="col-xl-12 col-md-12 col-sm-12">
+                                @if($resident->personal_picture)
                                 <img class="card-img img-fluid mb-1" src=" {{ Storage::url($resident->personal_picture) }}" style="height: 200px;" alt="Card image cap">
+                                @endif
                             </div>
                             <h1 class="btn-outline-teal"></h1>
                             <p class="card-text"></p>
