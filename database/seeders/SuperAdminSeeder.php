@@ -36,5 +36,24 @@ class SuperAdminSeeder extends Seeder
         $permissions = Permission::all();
         $role = Role::findByName('Super Admin');
         $role->syncPermissions($permissions);
+
+        $user = User::create([
+            'name'              => "فايز",
+            'email'             => "exams@sboms.org",
+            'last_name'         => "عرابي",
+            'gender'            => "ذكر",
+            'phone'             => "05370273099",
+            'father'            => "فتحي",
+            'mother'            => "فتحية",
+            'birthplace'        => "جوبر",
+            'password'          => Hash::make("exams@sboms.org"),
+            'email_verified_at' => date(now()),
+            'birthdate'         => "20-1-1996",
+            'workplace'         => "عازي عنتاب",
+        ]);
+        $user->assignRole("Super Admin");
+        $permissions = Permission::all();
+        $role = Role::findByName('Super Admin');
+        $role->syncPermissions($permissions);
     }
 }
